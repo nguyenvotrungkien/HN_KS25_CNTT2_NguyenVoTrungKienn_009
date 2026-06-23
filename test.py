@@ -171,38 +171,36 @@ def input_usage(message):
             print("Số đã sử dụng phải lớn hơn hoặc bằng 0")
         except ValueError:
             print("nhap dung dinh dang so")
-def display_menu():
-    print("""
-    ================ MENU ================
-    1. Hiển thị danh sách hóa đơn điện nước
-    2. Thêm hóa đơn điện nước mới
-    3. Cập nhật hóa đơn điện nước
-    4. Xóa hóa đơn điện nước
-    5. Tìm kiếm hóa đơn
-    6. Thoát
-    =====================================
-    """)
-def main():
-    manager = HouseholdBillManager()
+a = HouseholdBillManager()
+if __name__ == "__main__":
     while True:
-        display_menu()
-        choice = input("Nhap lua chon cua ban: ").strip()
+        choice = input("""
+        ================ MENU ================
+        1. Hiển thị danh sách hóa đơn điện nước
+        2. Thêm hóa đơn điện nước mới
+        3. Cập nhật hóa đơn điện nước
+        4. Xóa hóa đơn điện nước
+        5. Tìm kiếm hóa đơn
+        6. Thoát
+        =====================================
+        Nhập lựa chọn của bạn: 
+        """)
         match choice:
             case "1":
-                manager.show_all()
+                a.show_all()
             case "2":
-                manager.add_bill()
+                a.add_bill()
             case "3":
-                manager.update_bill()
+                a.update_bill()
             case "4":
-                manager.delete_bill()
+                a.delete_bill()
             case "5":
-                manager.search_bill()
+                a.search_bill()
             case "6":
-                print("cảm ơn đã sử dụng")
+                print("thoát")
                 break
             case _:
-                print("lựa chọn không hợp lệ")
-if __name__ == "__main__":
-        main()
+                print("không hợp lệ")
+                break
+        
 
